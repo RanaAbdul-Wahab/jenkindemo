@@ -1,0 +1,22 @@
+node {
+    stage('Build') {
+        echo "Running Tests" 
+    }
+    
+    stage('Test1') {
+        echo "Running test 1"
+        ls 
+        echo " All the files have been listed"
+    }
+    
+    stage('Test2') {
+        echo "Running test 2"
+        whoami
+        echo " Username has been printed "
+       
+    }
+    
+    stage('Deploy') {
+        echo" Application have been deployed"
+    }
+}
