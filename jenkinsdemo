@@ -1,22 +1,33 @@
-node {
-    stage('Build') {
-        echo "Running Tests" 
-    }
-    
-    stage('Test1') {
-        echo "Running test 1"
-        ls 
-        echo " All the files have been listed"
-    }
-    
-    stage('Test2') {
-        echo "Running test 2"
-        whoami
-        echo " Username has been printed "
-       
-    }
-    
-    stage('Deploy') {
-        echo" Application have been deployed"
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Running Tests"
+            }
+        }
+        
+        stage('Test1') {
+            steps {
+                echo "Running test 1"
+                sh 'ls' // This will list all files in the current directory
+                echo "All the files have been listed"
+            }
+        }
+        
+        stage('Test2') {
+            steps {
+                echo "Running test 2"
+                sh 'whoami' // This will print the current user
+                echo "Username has been printed"
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo "Application has been deployed"
+            }
+        }
     }
 }
